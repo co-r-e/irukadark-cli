@@ -6,7 +6,7 @@ description: Generate images, videos, music and voice with IrukaDark using the u
 # IrukaDark CLI
 
 The `irukadark` command generates images, videos, music and voice with the user's IrukaDark account.
-Generations use the user's credits. This skill was written for irukadark 0.1.1.
+Generations use the user's credits. This skill was written for irukadark 0.1.2.
 
 ## Before you start
 
