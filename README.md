@@ -105,3 +105,7 @@ On Windows, `irukadark update` and `npm install -g irukadark@latest` also work w
 `irukadark auth login` opens your browser. Approve the request there and the browser returns to irukadark. On a machine without a browser, run `irukadark auth login --device`, open the page it shows on any device, and enter the code.
 
 The sign-in can only create media and read what irukadark uses (models, runs, assets, directions, uploads, credits and your files). It is kept in the system keychain (Windows Credential Manager on Windows; on macOS and Linux, in a file under `~/.irukadark/` when no keychain is available) and renews itself while you use it. `irukadark auth logout` signs out and removes it. You can also sign it out from Sign-in & security on irukadark.com.
+
+## License
+
+irukadark is proprietary software of CORe, Inc. See [LICENSE](https://github.com/co-r-e/irukadark-cli/blob/main/LICENSE). It includes third-party software under its own licenses, listed in [THIRD-PARTY-NOTICES.txt](https://github.com/co-r-e/irukadark-cli/blob/main/THIRD-PARTY-NOTICES.txt).
