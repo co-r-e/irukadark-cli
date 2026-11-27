@@ -67,12 +67,24 @@ claude mcp add --scope user irukadark -- irukadark mcp
 codex mcp add irukadark -- irukadark mcp
 ```
 
-You can also run it with `npx` without installing the CLI (sign in once first with `npx -y irukadark auth login`):
+In other MCP hosts, register the installed command:
 
 ```json
 {
   "mcpServers": {
-    "irukadark": { "command": "npx", "args": ["-y", "irukadark", "mcp"] }
+    "irukadark": { "command": "irukadark", "args": ["mcp"] }
+  }
+}
+```
+
+If the host cannot find `irukadark`, use the full path that `which irukadark` (`where irukadark` on Windows) shows.
+
+You can also run it with `npx` without installing the CLI (sign in once first with `npx -y irukadark@latest auth login`). Keep `@latest`: without it, npx runs an `irukadark` found in the folder the agent works in before the one on npm.
+
+```json
+{
+  "mcpServers": {
+    "irukadark": { "command": "npx", "args": ["-y", "irukadark@latest", "mcp"] }
   }
 }
 ```
