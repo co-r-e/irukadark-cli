@@ -1,0 +1,22 @@
+Copyright (c) CORe, Inc. All rights reserved.
+
+The IrukaDark CLI (the "Software") is proprietary software of CORe, Inc. It is
+not open source.
+
+You may download and run the Software only to use IrukaDark with your own
+account. Your use of the Software and of IrukaDark is governed by the IrukaDark
+Terms of Service at https://irukadark.com/terms.
+
+You may not, and may not let others:
+
+- modify the Software or create derivative works of it;
+- copy, redistribute, sell, rent, lend or sublicense the Software, except for
+  downloading it from the official GitHub releases or npm packages;
+- reverse engineer, decompile, disassemble or otherwise analyze the Software
+  to derive its source code or internal workings, except where applicable law
+  expressly permits this despite this restriction;
+- remove or change this notice.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. TO THE EXTENT PERMITTED BY LAW, CORe, Inc. IS NOT LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE SOFTWARE OR ITS USE.
