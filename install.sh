@@ -1,6 +1,8 @@
 #!/bin/sh
 # Install the IrukaDark CLI.
 #   curl -fsSL https://raw.githubusercontent.com/co-r-e/irukadark-cli/main/install.sh | sh
+# On Windows, use install.ps1 in PowerShell instead:
+#   irm https://raw.githubusercontent.com/co-r-e/irukadark-cli/main/install.ps1 | iex
 # Options (environment variables):
 #   IRUKADARK_INSTALL_DIR  Where to put irukadark (default: ~/.local/bin)
 #   IRUKADARK_VERSION      A version to install, such as 0.1.0 (default: the latest)
@@ -8,7 +10,8 @@ set -eu
 
 REPOSITORY="co-r-e/irukadark-cli"
 INSTALL_DIR="${IRUKADARK_INSTALL_DIR:-$HOME/.local/bin}"
-CONFIG_DIR="${IRUKADARK_CONFIG_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}/irukadark}"
+# irukadark keeps its settings in ~/.irukadark (the same folder as IrukaDark Desktop)
+CONFIG_DIR="$HOME/.irukadark"
 
 fail() {
   echo "irukadark: $*" >&2
@@ -18,7 +21,8 @@ fail() {
 case "$(uname -s)" in
   Darwin) os=darwin ;;
   Linux) os=linux ;;
-  *) fail "This computer is not supported yet. irukadark runs on macOS and Linux (on Windows, use WSL)." ;;
+  MINGW* | MSYS* | CYGWIN*) fail "On Windows, install irukadark in PowerShell: irm https://raw.githubusercontent.com/co-r-e/irukadark-cli/main/install.ps1 | iex" ;;
+  *) fail "This computer is not supported yet. irukadark runs on macOS, Linux and Windows." ;;
 esac
 case "$(uname -m)" in
   arm64 | aarch64) arch=arm64 ;;
@@ -64,6 +68,7 @@ mv "$tmp/$name" "$INSTALL_DIR/irukadark"
 
 # irukadark update replaces only a copy it knows was installed by this script
 mkdir -p "$CONFIG_DIR"
+chmod 700 "$CONFIG_DIR"
 printf '{"method":"script","path":"%s"}\n' "$INSTALL_DIR/irukadark" > "$CONFIG_DIR/install.json"
 
 version="$("$INSTALL_DIR/irukadark" version 2>/dev/null || true)"
